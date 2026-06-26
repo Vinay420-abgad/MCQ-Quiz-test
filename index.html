@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology MCQ Test</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Header -->
+
+    <header class="exam-header">
+
+
+        <div class="header-top">
+
+            <img src="SSPS_Logo.webp" alt="School Logo" class="school-logo"> 
+
+            <div class="school-title">
+
+                <h1>Shree Samarth Public School & Junior College, Ridhora</h1>
+               
+                <h2>🧬 Biology MCQ Test</h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="exam-info">
+
+            <div>
+                <h3>Grade</h3>
+                <p>9th</p>
+            </div>
+
+            <div>
+                <h3>Subject</h3>
+                <p>Biology</p>
+            </div>
+
+            <div>
+                <h3>Total Questions</h3>
+                <p>30</p>
+            </div>
+
+            <div>
+                <h3>Marks</h3>
+                <p>60</p>
+            </div>
+
+            <div>
+                <h3>Time</h3>
+                <p id="timer">90:00</p>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Student Details -->
+
+    <section class="student-box">
+
+        <h2>Student Information</h2>
+
+        <div class="student-grid">
+
+            <div>
+                <label>Name</label>
+                <input type="text" id="studentName" placeholder="Enter your name">
+            </div>
+
+            <div>
+                <label>Roll Number</label>
+                <input type="text" id="rollNo" placeholder="Enter roll number">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Instructions -->
+
+    <section class="instructions">
+
+        <h2>Instructions</h2>
+
+        <ul>
+
+            <li>Read every question carefully.</li>
+
+            <li>Each question carries 2 marks.</li>
+
+            <li>Select only one option.</li>
+
+            <li>All questions are compulsory.</li>
+
+            <li>Click Submit after completing the test.</li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- Progress -->
+
+    <section class="progress-section">
+
+        <div class="progress-text">
+
+            <span>Progress</span>
+
+            <span id="progressText">0 / 30 Answered</span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div id="progressFill"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Quiz -->
+
+    <form id="quizForm">
+
+
+        <!-- Question 1 -->
+
+        <div class="question">
+
+            <h3>1. Which among the following diseases is characterized by complete loss of memory?</h3>
+
+            <label class="option"><input type="radio" name="q1" value="A"> Amnesia</label>
+
+            <label class="option"><input type="radio" name="q1" value="B"> Schizophrenia</label>
+
+            <label class="option"><input type="radio" name="q1" value="C"> Alzheimer's disease</label>
+
+            <label class="option"><input type="radio" name="q1" value="D"> Parkinson's disease</label>
+
+        </div>
+
+
+        <!-- Question 2 -->
+
+        <div class="question">
+
+            <h3>2. Which of the following is a Gymnosperm?</h3>
+
+            <label class="option"><input type="radio" name="q2" value="A"> Cashew</label>
+
+            <label class="option"><input type="radio" name="q2" value="B"> Chilgoza</label>
+
+            <label class="option"><input type="radio" name="q2" value="C"> Pistachio</label>
+
+            <label class="option"><input type="radio" name="q2" value="D"> None of the above</label>
+
+        </div>
+
+
+        <!-- Question 3 -->
+
+        <div class="question">
+
+            <h3>3. Which among the following is caused by Virus?</h3>
+
+            <label class="option"><input type="radio" name="q3" value="A"> Mumps</label>
+
+            <label class="option"><input type="radio" name="q3" value="B"> Beri Beri</label>
+
+            <label class="option"><input type="radio" name="q3" value="C"> Tuberculosis</label>
+
+            <label class="option"><input type="radio" name="q3" value="D"> Dysentery</label>
+
+        </div>
+
+
+        <!-- Question 4 -->
+
+        <div class="question">
+
+            <h3>4. From which part of the plant Glycyrrhiza glabra (Liquorice/Mulethi) is obtained?</h3>
+
+            <label class="option"><input type="radio" name="q4" value="A"> Leaves</label>
+
+            <label class="option"><input type="radio" name="q4" value="B"> Roots</label>
+
+            <label class="option"><input type="radio" name="q4" value="C"> Fruits</label>
+
+            <label class="option"><input type="radio" name="q4" value="D"> Stem</label>
+
+        </div>
+
+
+        <!-- Question 5 -->
+
+        <div class="question">
+
+            <h3>5. "Pratham" the first animal born by IVF at NDRI Karnal was a?</h3>
+
+            <label class="option"><input type="radio" name="q5" value="A"> Cow</label>
+
+            <label class="option"><input type="radio" name="q5" value="B"> Buffalo</label>
+
+            <label class="option"><input type="radio" name="q5" value="C"> Sheep</label>
+
+            <label class="option"><input type="radio" name="q5" value="D"> Goat</label>
+
+        </div>
+
+
+        <!-- Question 6 -->
+
+        <div class="question">
+
+            <h3>6. The useful part of Zingiber officinale is?</h3>
+
+            <label class="option"><input type="radio" name="q6" value="A"> Roots</label>
+
+            <label class="option"><input type="radio" name="q6" value="B"> Rhizome</label>
+
+            <label class="option"><input type="radio" name="q6" value="C"> Leaves</label>
+
+            <label class="option"><input type="radio" name="q6" value="D"> Fruits</label>
+
+        </div>
+
+
+        <!-- Question 7 -->
+
+        <div class="question">
+
+            <h3>7. Which of the following is the correct statement about heterotrophs?</h3>
+
+            <label class="option"><input type="radio" name="q7" value="A"> Obtain energy from sunlight</label>
+
+            <label class="option"><input type="radio" name="q7" value="B"> Obtain energy by oxidizing organic molecules</label>
+
+            <label class="option"><input type="radio" name="q7" value="C"> Make organic molecules from CO₂</label>
+
+            <label class="option"><input type="radio" name="q7" value="D"> Consume only autotrophs</label>
+
+        </div>
+
+
+        <!-- Question 8 -->
+
+        <div class="question">
+
+            <h3>8. In human body, the main target of antidiuretic hormone is?</h3>
+
+            <label class="option"><input type="radio" name="q8" value="A"> Heart</label>
+
+            <label class="option"><input type="radio" name="q8" value="B"> Kidney</label>
+
+            <label class="option"><input type="radio" name="q8" value="C"> Liver</label>
+
+            <label class="option"><input type="radio" name="q8" value="D"> Spleen</label>
+
+        </div>
+
+
+        <!-- Question 9 -->
+
+        <div class="question">
+
+            <h3>9. Which organ is associated with the production of insulin?</h3>
+
+            <label class="option"><input type="radio" name="q9" value="A"> Pancreas</label>
+
+            <label class="option"><input type="radio" name="q9" value="B"> Liver</label>
+
+            <label class="option"><input type="radio" name="q9" value="C"> Kidney</label>
+
+            <label class="option"><input type="radio" name="q9" value="D"> Heart</label>
+
+        </div>
+
+
+        <!-- Question 10 -->
+
+        <div class="question">
+
+            <h3>10. Which of the following plants is biennial?</h3>
+
+            <label class="option"><input type="radio" name="q10" value="A"> Banana</label>
+
+            <label class="option"><input type="radio" name="q10" value="B"> Pineapple</label>
+
+            <label class="option"><input type="radio" name="q10" value="C"> Jackfruit</label>
+
+            <label class="option"><input type="radio" name="q10" value="D"> Carrot</label>
+
+        </div>
+
+
+        <!-- Question 11 -->
+
+        <div class="question">
+
+            <h3>11. Who coined the term "cell" in 1665?</h3>
+
+            <label class="option"><input type="radio" name="q11" value="A"> Anton van Leeuwenhoek</label>
+
+            <label class="option"><input type="radio" name="q11" value="B"> Robert Hooke</label>
+
+            <label class="option"><input type="radio" name="q11" value="C"> Schleiden</label>
+
+            <label class="option"><input type="radio" name="q11" value="D"> Purkinje</label>
+
+        </div>
+
+
+        <!-- Question 12 -->
+
+        <div class="question">
+
+            <h3>12. Which of these cell organelles is known as the "powerhouse of the cell"?</h3>
+
+            <label class="option"><input type="radio" name="q12" value="A"> Lysosome</label>
+
+            <label class="option"><input type="radio" name="q12" value="B"> Plastid</label>
+
+            <label class="option"><input type="radio" name="q12" value="C"> Mitochondria</label>
+
+            <label class="option"><input type="radio" name="q12" value="D"> Golgi apparatus</label>
+
+        </div>
+
+
+        <!-- Question 13 -->
+
+        <div class="question">
+
+            <h3>13. Which organelle is called the "suicide bag" of the cell?</h3>
+
+            <label class="option"><input type="radio" name="q13" value="A"> Vacuole</label>
+
+            <label class="option"><input type="radio" name="q13" value="B"> Plastid</label>
+
+            <label class="option"><input type="radio" name="q13" value="C"> Lysosome</label>
+
+            <label class="option"><input type="radio" name="q13" value="D"> Mitochondria</label>
+
+        </div>
+
+
+        <!-- Question 14 -->
+
+        <div class="question">
+
+            <h3>14. The jelly-like substance present inside the cell is called:</h3>
+
+            <label class="option"><input type="radio" name="q14" value="A"> Nucleus</label>
+
+            <label class="option"><input type="radio" name="q14" value="B"> Cytoplasm</label>
+
+            <label class="option"><input type="radio" name="q14" value="C"> Cell wall</label>
+
+            <label class="option"><input type="radio" name="q14" value="D"> Organelle</label>
+
+        </div>
+
+
+        <!-- Question 15 -->
+
+        <div class="question">
+
+            <h3>15. Which of the following is NOT found in animal cells?</h3>
+
+            <label class="option"><input type="radio" name="q15" value="A"> Cell wall</label>
+
+            <label class="option"><input type="radio" name="q15" value="B"> Cell membrane</label>
+
+            <label class="option"><input type="radio" name="q15" value="C"> Mitochondria</label>
+
+            <label class="option"><input type="radio" name="q15" value="D"> Nucleus</label>
+
+        </div>
+
+
+        <!-- Question 16 -->
+
+        <div class="question">
+
+            <h3>16. The process by which water moves through a semi-permeable membrane is called:</h3>
+
+            <label class="option"><input type="radio" name="q16" value="A"> Diffusion</label>
+
+            <label class="option"><input type="radio" name="q16" value="B"> Active transport</label>
+
+            <label class="option"><input type="radio" name="q16" value="C"> Osmosis</label>
+
+            <label class="option"><input type="radio" name="q16" value="D"> Plasmolysis</label>
+
+        </div>
+
+
+        <!-- Question 17 -->
+
+        <div class="question">
+
+            <h3>17. Which of the following is a prokaryotic cell?</h3>
+
+            <label class="option"><input type="radio" name="q17" value="A"> Amoeba</label>
+
+            <label class="option"><input type="radio" name="q17" value="B"> Bacteria</label>
+
+            <label class="option"><input type="radio" name="q17" value="C"> Yeast</label>
+
+            <label class="option"><input type="radio" name="q17" value="D"> Humans</label>
+
+        </div>
+
+
+        <!-- Question 18 -->
+
+        <div class="question">
+
+            <h3>18. The functional segment of DNA is called a:</h3>
+
+            <label class="option"><input type="radio" name="q18" value="A"> Chromosome</label>
+
+            <label class="option"><input type="radio" name="q18" value="B"> Gene</label>
+
+            <label class="option"><input type="radio" name="q18" value="C"> Nucleus</label>
+
+            <label class="option"><input type="radio" name="q18" value="D"> Ribosome</label>
+
+        </div>
+
+
+        <!-- Question 19 -->
+
+        <div class="question">
+
+            <h3>19. Which organelle is responsible for packaging and dispatching materials?</h3>
+
+            <label class="option"><input type="radio" name="q19" value="A"> Lysosome</label>
+
+            <label class="option"><input type="radio" name="q19" value="B"> Ribosome</label>
+
+            <label class="option"><input type="radio" name="q19" value="C"> Endoplasmic reticulum</label>
+
+            <label class="option"><input type="radio" name="q19" value="D"> Golgi apparatus</label>
+
+        </div>
+
+
+        <!-- Question 20 -->
+
+        <div class="question">
+
+            <h3>20. Which plastid is involved in trapping light energy for photosynthesis?</h3>
+
+            <label class="option"><input type="radio" name="q20" value="A"> Leucoplast</label>
+
+            <label class="option"><input type="radio" name="q20" value="B"> Chromoplast</label>
+
+            <label class="option"><input type="radio" name="q20" value="C"> Chloroplast</label>
+
+            <label class="option"><input type="radio" name="q20" value="D"> Amyloplast</label>
+
+        </div>
+
+
+                <!-- Question 21 -->
+
+        <div class="question">
+
+            <h3>21. Which tissue is responsible for the increase in the girth of the stem or root in plants?</h3>
+
+            <label class="option"><input type="radio" name="q21" value="A"> Apical meristem</label>
+
+            <label class="option"><input type="radio" name="q21" value="B"> Lateral meristem</label>
+
+            <label class="option"><input type="radio" name="q21" value="C"> Intercalary meristem</label>
+
+            <label class="option"><input type="radio" name="q21" value="D"> Permanent tissue</label>
+
+        </div>
+
+
+        <!-- Question 22 -->
+
+        <div class="question">
+
+            <h3>22. Cells of sclerenchyma tissue are dead and hard due to the deposition of:</h3>
+
+            <label class="option"><input type="radio" name="q22" value="A"> Pectin</label>
+
+            <label class="option"><input type="radio" name="q22" value="B"> Cellulose</label>
+
+            <label class="option"><input type="radio" name="q22" value="C"> Lignin</label>
+
+            <label class="option"><input type="radio" name="q22" value="D"> Suberin</label>
+
+        </div>
+
+
+        <!-- Question 23 -->
+
+        <div class="question">
+
+            <h3>23. Which of the following is a complex permanent tissue in plants?</h3>
+
+            <label class="option"><input type="radio" name="q23" value="A"> Parenchyma</label>
+
+            <label class="option"><input type="radio" name="q23" value="B"> Collenchyma</label>
+
+            <label class="option"><input type="radio" name="q23" value="C"> Sclerenchyma</label>
+
+            <label class="option"><input type="radio" name="q23" value="D"> Xylem</label>
+
+        </div>
+
+
+        <!-- Question 24 -->
+
+        <div class="question">
+
+            <h3>24. The tissue that connects muscle to bone is:</h3>
+
+            <label class="option"><input type="radio" name="q24" value="A"> Tendon</label>
+
+            <label class="option"><input type="radio" name="q24" value="B"> Ligament</label>
+
+            <label class="option"><input type="radio" name="q24" value="C"> Cartilage</label>
+
+            <label class="option"><input type="radio" name="q24" value="D"> Areolar tissue</label>
+
+        </div>
+
+
+        <!-- Question 25 -->
+
+        <div class="question">
+
+            <h3>25. Fat storing tissue in the human body is called:</h3>
+
+            <label class="option"><input type="radio" name="q25" value="A"> Adipose tissue</label>
+
+            <label class="option"><input type="radio" name="q25" value="B"> Blood</label>
+
+            <label class="option"><input type="radio" name="q25" value="C"> Epithelial tissue</label>
+
+            <label class="option"><input type="radio" name="q25" value="D"> Bone</label>
+
+        </div>
+
+
+        <!-- Question 26 -->
+
+        <div class="question">
+
+            <h3>26. Which of the following is an involuntary muscle?</h3>
+
+            <label class="option"><input type="radio" name="q26" value="A"> Striated muscle</label>
+
+            <label class="option"><input type="radio" name="q26" value="B"> Skeletal muscle</label>
+
+            <label class="option"><input type="radio" name="q26" value="C"> Smooth muscle</label>
+
+            <label class="option"><input type="radio" name="q26" value="D"> Biceps</label>
+
+        </div>
+
+
+        <!-- Question 27 -->
+
+        <div class="question">
+
+            <h3>27. Which blood cells are responsible for carrying oxygen?</h3>
+
+            <label class="option"><input type="radio" name="q27" value="A"> White Blood Cells (WBCs)</label>
+
+            <label class="option"><input type="radio" name="q27" value="B"> Red Blood Cells (RBCs)</label>
+
+            <label class="option"><input type="radio" name="q27" value="C"> Platelets</label>
+
+            <label class="option"><input type="radio" name="q27" value="D"> Plasma</label>
+
+        </div>
+
+
+        <!-- Question 28 -->
+
+        <div class="question">
+
+            <h3>28. The functional unit of the nervous system is:</h3>
+
+            <label class="option"><input type="radio" name="q28" value="A"> Nephron</label>
+
+            <label class="option"><input type="radio" name="q28" value="B"> Neuron</label>
+
+            <label class="option"><input type="radio" name="q28" value="C"> Axon</label>
+
+            <label class="option"><input type="radio" name="q28" value="D"> Dendrite</label>
+
+        </div>
+
+
+        <!-- Question 29 -->
+
+        <div class="question">
+
+            <h3>29. Which plant tissue transports water and minerals?</h3>
+
+            <label class="option"><input type="radio" name="q29" value="A"> Phloem</label>
+
+            <label class="option"><input type="radio" name="q29" value="B"> Xylem</label>
+
+            <label class="option"><input type="radio" name="q29" value="C"> Cambium</label>
+
+            <label class="option"><input type="radio" name="q29" value="D"> Epidermis</label>
+
+        </div>
+
+
+        <!-- Question 30 -->
+
+        <div class="question">
+
+            <h3>30. Which tissue lines the inner surface of the mouth and esophagus?</h3>
+
+            <label class="option"><input type="radio" name="q30" value="A"> Cuboidal epithelium</label>
+
+            <label class="option"><input type="radio" name="q30" value="B"> Columnar epithelium</label>
+
+            <label class="option"><input type="radio" name="q30" value="C"> Stratified squamous epithelium</label>
+
+            <label class="option"><input type="radio" name="q30" value="D"> Ciliated epithelium</label>
+
+        </div>
+
+
+        <!-- Submit Button -->
+
+        <button type="button" class="btn" onclick="checkAnswers()">
+            Submit Test
+        </button>
+
+    </form>
+
+
+    <!-- Result -->
+
+    <div id="result"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
