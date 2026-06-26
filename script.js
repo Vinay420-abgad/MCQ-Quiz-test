@@ -1,90 +1,331 @@
-function checkAnswers() {
+/* ==========================================
+   ANSWER KEY
+========================================== */
 
-    const answers = {
-        q1: "A",
-        q2: "B",
-        q3: "A",
-        q4: "B",
-        q5: "B",
-        q6: "B",
-        q7: "B",
-        q8: "B",
-        q9: "A",
-        q10: "D"
-    };
+const answers = {
+
+    q1:"A",
+    q2:"B",
+    q3:"A",
+    q4:"B",
+    q5:"B",
+    q6:"B",
+    q7:"B",
+    q8:"B",
+    q9:"A",
+    q10:"D",
+
+    q11:"B",
+    q12:"C",
+    q13:"C",
+    q14:"B",
+    q15:"A",
+    q16:"C",
+    q17:"B",
+    q18:"B",
+    q19:"D",
+    q20:"C",
+
+    q21:"B",
+    q22:"C",
+    q23:"D",
+    q24:"A",
+    q25:"A",
+    q26:"C",
+    q27:"B",
+    q28:"B",
+    q29:"B",
+    q30:"C"
+
+};
+
+const totalQuestions = Object.keys(answers).length;
+
+
+/* ==========================================
+   TIMER
+========================================== */
+
+let totalTime = 90 * 60;
+
+const timer = document.getElementById("timer");
+
+let timerInterval = setInterval(function(){
+
+    let minutes = Math.floor(totalTime / 60);
+
+    let seconds = totalTime % 60;
+
+    timer.innerText =
+        String(minutes).padStart(2,"0") + ":" +
+        String(seconds).padStart(2,"0");
+
+    if(totalTime <= 0){
+
+        clearInterval(timerInterval);
+
+        alert("Time is over! Your test will be submitted automatically.");
+
+        checkAnswers();
+
+    }
+
+    totalTime--;
+
+},1000);
+
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+const radios = document.querySelectorAll("input[type='radio']");
+
+radios.forEach(radio=>{
+
+    radio.addEventListener("change",updateProgress);
+
+});
+
+
+function updateProgress(){
+
+    let answered = 0;
+
+    for(let key in answers){
+
+        if(document.querySelector(`input[name="${key}"]:checked`)){
+
+            answered++;
+
+        }
+
+    }
+
+    document.getElementById("progressText").innerHTML =
+    answered + " / " + totalQuestions + " Answered";
+
+    document.getElementById("progressFill").style.width =
+    (answered/totalQuestions)*100 + "%";
+
+}
+
+
+/* ==========================================
+   STUDENT VALIDATION
+========================================== */
+
+function validateStudent(){
+
+    const name =
+    document.getElementById("studentName").value.trim();
+
+    const roll =
+    document.getElementById("rollNo").value.trim();
+
+    if(name===""){
+
+        alert("Please enter your name.");
+
+        return false;
+
+    }
+
+    if(roll===""){
+
+        alert("Please enter your roll number.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+/* ==========================================
+   CHECK ANSWERS
+========================================== */
+
+function checkAnswers(){
+
+    if(!validateStudent()){
+        return;
+    }
 
     let score = 0;
     let attempted = 0;
-    const totalQuestions = Object.keys(answers).length;
 
-    // Remove previous highlights
-    document.querySelectorAll(".option").forEach(option => {
-        option.style.backgroundColor = "";
-        option.style.borderColor = "";
+    // Reset previous highlighting
+
+    document.querySelectorAll(".option").forEach(option=>{
+
+        option.classList.remove("correct");
+        option.classList.remove("wrong");
+
     });
 
-    for (let key in answers) {
+
+    // Check all questions
+
+    for(let key in answers){
 
         const selected = document.querySelector(
             `input[name="${key}"]:checked`
         );
 
-        if (selected) {
-            attempted++;
+        // Question not answered
 
-            const selectedLabel = selected.parentElement;
+        if(!selected){
 
-            if (selected.value === answers[key]) {
-                score++;
-                selectedLabel.style.backgroundColor = "#d4edda";
-                selectedLabel.style.borderColor = "#28a745";
-            } else {
-                selectedLabel.style.backgroundColor = "#f8d7da";
-                selectedLabel.style.borderColor = "#dc3545";
+            alert(
+                "Please answer all questions before submitting."
+            );
 
-                // Highlight correct answer
-                const correctOption = document.querySelector(
-                    `input[name="${key}"][value="${answers[key]}"]`
-                );
+            const question = document.querySelector(
+                `input[name="${key}"]`
+            ).closest(".question");
 
-                correctOption.parentElement.style.backgroundColor = "#d4edda";
-                correctOption.parentElement.style.borderColor = "#28a745";
-            }
+            question.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            return;
+
         }
+
+        attempted++;
+
+        const selectedLabel = selected.parentElement;
+
+        // Correct Answer
+
+        if(selected.value===answers[key]){
+
+            score++;
+
+            selectedLabel.classList.add("correct");
+
+        }
+
+        // Wrong Answer
+
+        else{
+
+            selectedLabel.classList.add("wrong");
+
+            const correctOption = document.querySelector(
+
+                `input[name="${key}"][value="${answers[key]}"]`
+
+            );
+
+            correctOption.parentElement.classList.add("correct");
+
+        }
+
     }
 
-    // Check unanswered questions
-    if (attempted < totalQuestions) {
-        alert(
-            `Please answer all questions.\nAnswered: ${attempted}/${totalQuestions}`
-        );
-        return;
-    }
+
+    showResult(score,attempted);
+
+}
+
+
+/* ==========================================
+   SHOW RESULT
+========================================== */
+
+function showResult(score, attempted) {
+
+    // Stop timer
+    clearInterval(timerInterval);
 
     const percentage = ((score / totalQuestions) * 100).toFixed(2);
 
-    let status = percentage >= 40
-        ? "PASS"
-        : "FAIL";
+    let grade = "";
+    let status = "";
 
-    document.getElementById("result").innerHTML = `
-        <h2>Your Result</h2>
-        <p><strong>Score:</strong> ${score} / ${totalQuestions}</p>
+    if (percentage >= 90) {
+        grade = "A+";
+        status = "🎉 PASS";
+    } else if (percentage >= 80) {
+        grade = "A";
+        status = "🎉 PASS";
+    } else if (percentage >= 70) {
+        grade = "B+";
+        status = "🎉 PASS";
+    } else if (percentage >= 60) {
+        grade = "B";
+        status = "🎉 PASS";
+    } else if (percentage >= 50) {
+        grade = "C";
+        status = "🎉 PASS";
+    } else if (percentage >= 40) {
+        grade = "D";
+        status = "🎉 PASS";
+    } else {
+        grade = "F";
+        status = "❌ FAIL";
+    }
+
+    const wrong = totalQuestions - score;
+
+    const studentName = document.getElementById("studentName").value;
+    const rollNo = document.getElementById("rollNo").value;
+
+    const result = document.getElementById("result");
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+
+        <h2>🏆 Biology MCQ Test Result</h2>
+
+        <p><strong>Student Name:</strong> ${studentName}</p>
+
+        <p><strong>Roll Number:</strong> ${rollNo}</p>
+
+        <hr style="margin:20px 0;">
+
+        <p><strong>Total Questions:</strong> ${totalQuestions}</p>
+
+        <p><strong>Attempted:</strong> ${attempted}</p>
+
+        <p><strong>Correct:</strong> ${score} ✅</p>
+
+        <p><strong>Wrong:</strong> ${wrong} ❌</p>
+
         <p><strong>Percentage:</strong> ${percentage}%</p>
-        <p><strong>Status:</strong> ${status}</p>
+
+        <p class="grade"><strong>Grade:</strong> ${grade}</p>
+
+        <p class="${grade === "F" ? "fail" : "pass"}">
+            <strong>Status:</strong> ${status}
+        </p>
+
     `;
 
     // Disable all radio buttons
-    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    document.querySelectorAll("input[type='radio']").forEach(radio => {
         radio.disabled = true;
     });
 
+    // Disable student details
+    document.getElementById("studentName").disabled = true;
+    document.getElementById("rollNo").disabled = true;
+
     // Disable submit button
-    document.querySelector(".btn").disabled = true;
-    document.querySelector(".btn").innerText = "Test Submitted";
+    const btn = document.querySelector(".btn");
+
+    btn.disabled = true;
+    btn.innerHTML = "✔ Test Submitted";
 
     // Scroll to result
-    document.getElementById("result").scrollIntoView({
+    result.scrollIntoView({
         behavior: "smooth"
     });
+
 }
